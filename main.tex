@@ -306,7 +306,7 @@ TBD
 
 While the triangular cavity offers an advantage in addressing polarization issues, the resulting intensity noise is not expected to pose a significant problem. Moreover, using the same design as the current PMC avoids the need for designing a new cavity from scratch, saving both design effort and lead time. Since we already have spare PMCs, these can be used while new spares are being built. The attenuation gain can be improved by replacing the PMC mirrors; however, the improvement is only about 10 dB, and even with the current PMC, jitter can be reduced to a level that ensures the A+ target sensitivity with a safety factor of 10. Therefore, we propose to use the exact same design as the current PMC.
 
-\begin{table}[]
+\begin{table}
     \centering
     \begin{tabular}{c|cccc}
         & Triangular & Bow Tie & Bow Tie (PMC) & \\
@@ -374,6 +374,18 @@ The mode matching for the JAC and IMC is designed under the following condition:
     \item Mode matching to the IMC is done in the HAM1
 \end{itemize}
 The distances are reffered by DXXXXXXX.
+
+\subsubsection{Requirement for the mode mismatching}
+In the IMC REFL path, the reflected beam is attenuated by a 1000 ppm transmissive mirror and a 50/50 beam splitter before reaching the photodetector (PD). As a result, for a 100 W beam reflected from the IMC, approximately 50 mW of power is delivered to the PD.
+
+The PD responsivity, accounting for the quantum efficiency (QE) of 0.96 and specified in the datasheet, is 0.83 A/W. Additionally, the shot noise intercept current—defined as the photocurrent at which shot noise equals the PD dark noise—is designed to be 2 mA for LSC RF photodetectors. This corresponds to an incident power of approximately 2.4 mW, which translates to a mode mismatching of 5\%. Therefore, as long as the mode mismatching is below 5\%, the noise contribution from the PD is dominated by its dark noise.
+
+For the planned O5 operation, the EOM is designed to provide a modulation depth of approximately $20 \times 10^{-3} \, \mathrm{rad}$. This modulation generates sidebands with a total power equivalent to about 2\% of the input power. Considering this contribution, the PD noise remains dominated by its dark noise for mode mismatching up to 3\%. From the perspective of IMC noise performance, setting the mode mismatching requirement to 2\% appears reasonable.
+
+In terms of power loss, the PSL itself is capable of delivering up to 110 W. To achieve the target of 100 W input to the interferometer, a mode mismatching of 2\% is acceptable. Thus, this requirement balances both noise considerations and power delivery efficiency.
+
+We don't have such strict requriement for the JAC mode-mismatching, since in any case the noise will be dominated by the JAC length motion, so we don't care so much about the PD sensing noise. But it's also reasonable to set same requirement for the JAC mode-mismatching from the view of the throughput. 
+
 \subsubsection{PSL to JAC}
 
 The output beam of the PMC is injected into the EOM without any lens. This EOM is for the f1/f2 sidebands, and we are moving it into HAM1 as discussed in the following section. However, the EOM is needed here for JAC sensing, and it’s preferable to maintain the current beam size on the EOM. Also, to avoid any new layout issues, we want to keep the beam path from the EOM to the PSL periscope the same as the current layout.
@@ -382,7 +394,7 @@ Thus, the first constraint for the JAC mode matching is the range where we can p
 
 The next constraint is the JAC position. The PSL periscope height is 830 mm, and the distance from the PSL periscope to the HAM1 center is 4.5 m. Assuming we place the JAC on the ISI, and considering the ISI width of 1.93 m, the distance from the PSL periscope to the HAM1 ISI edge will be approximately 3.57 m. I set the acceptable optical path length on the ISI from the edge to the JAC waist to be between 0.9 m and 1.4 m, including the periscope to kick down the beam from the PSL output to the table beam height by 0.22 m.
 
-The mode matching solutions within these constraints are shown in Fig.~\ref{fig:JAC_modematch}. The solution includes two mode matching lenses: IO\_MB\_L1 and IO\_MB\_L2, with focal lengths of -0.78 m (concave: RoC of -0.35 m) and 1.67 m (convex: RoC of 0.75 m), respectively. These lenses are placed 1.13 m and 2.90 m from the PMC waist position. The layout is detailed in LIGO-DXXXXXX \cite{}. Fig.~\ref{fig:JAC_modematch2d} shows how the mode changes when there is an error in the location of the lenses. The plot on the far right shows that the tolerance for the lens position to achieve 2\% mode matching is about 1 inch. IO\_MB\_L2 has relatively high sensitivity to the waist size compared to IO\_MB\_L1. Additionally, the waist position is more sensitive than the waist size, but the waist position can also be adjusted by moving the HAM1 periscope. Therefore, we propose using IO\_MB\_L1 for waist size adjustment and the HAM1 periscope for waist position adjustment.
+The mode matching solutions within these constraints are shown in Fig.~\ref{fig:JAC_modematch}. The solution includes two mode matching lenses: IO\_MB\_L1 and IO\_MB\_L2, with focal lengths of -0.78 m (concave: RoC of -0.35 m) and 1.67 m (convex: RoC of 0.75 m), respectively. These lenses are placed 1.13 m and 2.90 m from the PMC waist position. The layout is detailed in LIGO-DXXXXXX \cite{}. Fig.~\ref{fig:JAC_modematch2d} shows how the mode changes when there is an error in the location of the lenses. The plot on the far right shows that the tolerance for the lens position to achieve 2\% mode mismatching is about 1 inch. IO\_MB\_L2 has relatively high sensitivity to the waist size compared to IO\_MB\_L1. Additionally, the waist position is more sensitive than the waist size, but the waist position can also be adjusted by moving the HAM1 periscope. Therefore, we propose using IO\_MB\_L1 for waist size adjustment and the HAM1 periscope for waist position adjustment.
 
 \begin{figure}
     \centering
@@ -399,7 +411,6 @@ The mode matching solutions within these constraints are shown in Fig.~\ref{fig:
 \end{figure}
 
 \subsubsection{JAC to IMC}
-
 The mode matching between the JAC and IMC will be performed on the HAM1 ISI table. An in-vacuum EOM providing the f1/f2 sidebands for the IFO LSC will replace the EOM in the PSL. Two steering mirrors will be placed between the JAC and the IMC to create a zig-zag path, allowing for path length adjustments. The center-to-center distance between the two chambers is 2570 mm, and the ISI table width is 1930 mm, leaving an edge-to-edge distance of 640 mm between HAM1 and HAM2. The beam path on HAM2 is fixed, and the distance from the HAM2 edge to the IMC waist position (located outside the IMC) is 1420 mm. A zig-zag path on HAM1 allows for a path length of approximately 3 meters, forming the first constraint for the mode matching solution.
 
 Another constraint arises from the IMC ASC. Since there are no angular actuators in HAM2, it is beneficial to have a good Gouy phase telescope for ASC actuation in HAM1, along with the mode matching telescope for the IMC.
@@ -431,29 +442,6 @@ Additionally, JAC\_L1 will be mounted on a translation stage. This stage compens
     \label{fig:IMC_modematching2}
 \end{figure}
 
-
-\section{Fine adjustment with transport stage}
-For the fine adjustment of the mode matching to the IMC, the idea to use the translation stage was discussed. This can 
-
-This is an estimation of shot noise degradation caused by mode-mismatching due to EOM thermal lensing. First, the current shot noise level is estimated.
-
-The reflected power from the IMC is attenuated by a $T = 1000 \, \mathrm{ppm}$ mirror and a 50/50 beam splitter. For the Livingston case, the DC output of the IMC\_REFL PD is 50 counts for 1 W in a locked state, compared to 2500 counts for 1 W in an unlocked state. The EOM modulation depth is $24 \, \mathrm{mrad}$ with a $30 \, \mathrm{dBm}$ RF signal, which results in sideband power of 
-\[
-\left( J_1(24 \times 10^{-3}) \right)^2 \times 2 = 0.02\% 
-\]
-of the incident power.
-
-This leads to a total mis-coupling (including mode-mismatching, higher-order modes, and sidebands) of 2\%. After increasing the power to 60 W, the REFL PD DC output rises to 2400 counts. This consistency indicates that the mis-coupling remains unchanged before and after increasing the power. Based on these values, the power on the IMC REFL PD is calculated to be $0.57 \, \mathrm{mW}$. The sideband power, calculated to be $9 \, \mu \mathrm{W}$, is negligible.
-
-The responsivity and quantum efficiency (QE) of the PD, according to the C30642 datasheet, are 0.83 A/W and 0.96, respectively. Thus, the photocurrent of the PD is 
-\[
-0.83 \times 0.57 \, \mathrm{mA} = 0.45 \, \mathrm{mA}.
-\]
-The shot noise intercept current, defined as the current where shot noise equals the PD dark noise, is nominally designed to be $2 \, \mathrm{mA}$. This indicates that the IMC REFL PD is currently limited by the PD dark noise.
-
-Even if the mode-mismatching becomes four times worse (i.e., increases to 8\%), the noise at high frequencies in the IMC loop would remain unchanged due to the dominance of PD dark noise.
-
-For O5, we plan to replace the EOM, which will increase the modulation depth by nearly 10 times. This results in a 100-fold increase in sideband power, reaching approximately $1 \, \mathrm{mW}$ at the IMC REFL PD. This corresponds to a 4\% mode-mismatching, which still gives the same PD sensing noise as before due to the PD dark current noise limit. From this perspective, precise IMC mode matching adjustments may not be necessary. As shown in Section ??, achieving mode matching below 4\% is straightforward, making a translation stage for compensating EOM thermal lensing unnecessary.
 
 
 \subsection{Height adjustment}
@@ -494,7 +482,7 @@ Requirement for this viewport is similar to the IMC REFL viewport and the inject
 
 \subsection{Power adjustment}
 During the lock acquisition, the output beam power from the PSL varies from a few watts to 100W.
-\color{\red TBD}
+{ TBD}
 
 \subsection{Leakage port}
 The power leaking from the ports other than the input and output couplers is designed to be sensed or dumped in vacuum. This design makes it impossible to directly detect the leakage beam with a camera. However, this is not a major issue, as we have the IMC REFL camera, which can serve this purpose.
@@ -796,6 +784,6 @@ Summarizing these cables, the required feedthroughs are:
 
 \section{Test plan}
 \section{Installation plan}
-\section
+\section{}
 
 \end{document}
