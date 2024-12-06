@@ -331,7 +331,7 @@ While the triangular cavity offers an advantage in addressing polarization issue
 \subsection{Specification of the aLIGO PMC}
 \section{HAM1 layout}
 \subsection{Overview}
-The HAM1 layout is shown in Fig.~\ref{fig:HAM1 layout}. The input and output periscope is used for the height adjustment between the beam height from the PSL and the ISI optical table height. The periscope has the same design as the one used in the HAM2 before the input mode cleaner(IMC). The angular actuators for the JAC and IMC alignment are the tip-tilt suspensions (JM1, JM2, and JM3). The reflection beam from JAC (JAC$\_$REFL) is directed out to the ISCT1. The new in-vac EOM is located after the JAC. Three modematching lenses are used for the IMC mode matching. One of them are placed on the translation stage Q-521.30U, which is the same model as the VOPO lens stage. One of the leakage light from the JAC is injected to the DC PD for transmission power monitoring.  
+The HAM1 layout is shown in Fig.~\ref{fig:HAM1 layout}. The input and output periscope is used for the height adjustment between the beam height from the PSL and the ISI optical table height. The periscope has the same design as the one used in the HAM2 before the input mode cleaner(IMC). The angular actuators for the JAC and IMC alignment are the tip-tilt suspensions (JM1, JM2, and JM3). The reflection beam from JAC (JAC$\_$REFL) is directed out to the ISCT1. The new in-vac EOM is located after the JAC. Three modematching lenses are used for the IMC mode matching. One of the leakage light from the JAC is injected to the DC PD for transmission power monitoring.  
 \begin{figure}
     \centering
     \includegraphics[width=1\linewidth]{Figs/HAM1layout.pdf}
@@ -426,7 +426,7 @@ Considering these constraints, the proposed mode matching solution is shown in F
 
 The mode mismatch contour maps based on the lens position are shown in Figs.~\ref{fig:IMC_modematching1} and \ref{fig:IMC_modematching2}. The advantage of this solution is that the waist size is relatively insensitive to lens position changes. Even with a 1-inch shift, the waist size only changes by 80 µm, which is 4\% of the IMC waist size and results in only 0.16\% mode mismatch. The waist position, however, is more sensitive than the waist size, but despite this, the tolerance for lens positioning to achieve 2\% mode matching is about 2 inches.
 
-Additionally, JAC\_L1 will be mounted on a translation stage. This stage compensates for EOM thermal lensing and enables fine mode matching adjustments after vacuum pumping. As shown in Figs.~\ref{fig:IMC_modematching1} and \ref{fig:IMC_modematching2}, JAC\_L1 is the most sensitive to mode mismatch, making it the ideal choice for placement on the translation stage. The PI: Q-521.30U translation stage was selected, offering a 30 mm travel range and vacuum compatibility certification for use on the squeezer OPO platform.
+% Additionally, JAC\_L1 will be mounted on a translation stage. This stage compensates for EOM thermal lensing and enables fine mode matching adjustments after vacuum pumping. As shown in Figs.~\ref{fig:IMC_modematching1} and \ref{fig:IMC_modematching2}, JAC\_L1 is the most sensitive to mode mismatch, making it the ideal choice for placement on the translation stage. The PI: Q-521.30U translation stage was selected, offering a 30 mm travel range and vacuum compatibility certification for use on the squeezer OPO platform.
 
 \begin{figure}
     \centering
@@ -753,7 +753,7 @@ The beam reflected by JM2 and JM3 directes to HAM2 and reflected by input mirror
     \end{table}
 \section{Open questions}
 \subsection{Thermal effect of the JAC}
-While the thermal lensing of the EOM has been verified to not pose a significant issue, the thermal effects of the JAC itself remain untested. As the input power changes from a few watts to over a hundred watts, the thermal conditions within the JAC will shift drastically. Although the heater will be used as part of the thermal compensation system, local thermal gradients, such as thermal lensing of the input or output mirrors and deformation of the JAC body, cannot be fully avoided. These effects may lead to changes in the output mode or alignment drift. Compensation may be achievable through the translation stage and tip-tilt suspensions, but if the available compensation range proves insufficient, it may be necessary to design an in-vacuum power adjustment stage. 
+While the thermal lensing of the EOM has been verified to not pose a significant issue, the thermal effects of the JAC itself remain untested. As the input power changes from a few watts to over a hundred watts, the thermal conditions within the JAC will shift drastically. Although the heater will be used as part of the thermal compensation system, local thermal gradients, such as thermal lensing of the input or output mirrors and deformation of the JAC body, cannot be fully avoided. These effects may lead to changes in the output mode or alignment drift. Alignment compensation may be achievable through the tip-tilt suspensions, but if the available compensation range proves insufficient, it may be necessary to design an in-vacuum power adjustment stage. 
 
 \subsection{Length fluctuation}
 The design calculations are based on assumed length fluctuations, estimated from the in-air PMC length fluctuations. However, it is possible that these assumptions underestimate the actual length fluctuations, leading to higher intensity and frequency noises in the output beam. During the testing phase, it will be necessary to evaluate the actual length fluctuation. If it is found to be larger than expected, we may need to increase the control bandwidth beyond the current design, potentially up to the kHz range. This could be achieved by switching from digital control to an analog servo system.
@@ -787,10 +787,9 @@ The main electronics in the HAM1 chamber related to the JAC will be
     \item 3 x Tip-tilt suspension
     \item JAC Controls (PZT, thermometer, and heater)
     \item DC PD
-    \item Lens translation stage
     \item EOM
 \end{itemize}
-Each tip-tilt needs a D25 connection for OSEM sensing and control. JAC PZT, JAC thermometer, DCPD and lens translation stage will share a D25 cable. Therefore, four D25 connections are needed. The JAC Heater requires high current and is planned to use the cable used for the SR3 ring heater. The EOM has four electrodes, and each connection will use a coax cable.
+Each tip-tilt needs a D25 connection for OSEM sensing and control. JAC PZT, JAC thermometer, and DCPD will share a D25 cable. Therefore, four D25 connections are needed. The JAC Heater requires high current and is planned to use the cable used for the SR3 ring heater. The EOM has four electrodes, and each connection will use a coax cable.
 
 Summarizing these cables, the required feedthroughs are:
 \begin{itemize}
