@@ -339,6 +339,13 @@ The HAM1 layout is shown in Fig.~\ref{fig:HAM1 layout}. The input and output per
     \label{fig:HAM1 layout}
 \end{figure}
 
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{Figs/HAM1_CAD.png}
+    \caption{HAM1 layout design with other path.}
+    \label{fig:HAM1 CAD}
+\end{figure}
+
 \subsection{Seismic Isolation}
 The seismic motion will introduce jitter noise on the output mirror. The introduced jitter noise is calculated for both the ISI which is planned to be installed into HAM1 chamber and the current HAM1 table. Current HAM1 table has three stages stack for the seismic isolation.
 
@@ -442,7 +449,21 @@ Additionally, JAC\_L1 will be mounted on a translation stage. This stage compens
     \label{fig:IMC_modematching2}
 \end{figure}
 
+\subsection{Thermal Lens of the EOM}
 
+Since the power on the EOM will vary from 1 W to full power during the lock acquisition, the mode shape incident on the IMC will change due to the thermal lensing of the EOM. To estimate this effect, the thermal lensing effect was tested for three samples of the RTP crystal~\cite{}. 
+
+Figure~\ref{fig:IMCMM_without_optimization} shows the dependence of the IMC mode mismatching on the injection power. This calculation was performed under the condition of no optimization for each sample, with the samples placed at the same position. Therefore, the optimal power is different for each sample in this scenario due to different thermal lensing effect on each crystals. The plot demonstrates that, once reasonable mode matching is achieved at low power, the deterioration in mode matching remains below 1\% across the 0–100 W power variation. This suggests that the EOM thermal lensing effect is not a critical issue for IMC mode matching degradation.
+
+It is worth noting that there was a consideration to add a translation stage under the lens for IMC mode matching, enabling adjustment of the mode matching in vacuum by compensating for the thermal lens. However, based on these results, we concluded that such a lens is unnecessary under these conditions.
+
+
+\begin{figure}
+\centering
+\includegraphics[width=1\linewidth]{Figs/IMCMM_without_optimization.pdf}
+\caption{IMC modemismatching dependence on the input power. The three tested RTP crystal sample is shown in the plot.}
+\label{fig:IMCMM_without_optimization}
+\end{figure}
 
 \subsection{Height adjustment}
 The beam line from the PSL is currently about 9 inches higher than the surface of the ISI table, so we need to lower the beam by 5 inches at HAM1. This height is constrained by the setup in HAM2, where the input Faraday isolator (IFI) is located, requiring the beam to pass above the IFI.
