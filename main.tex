@@ -387,7 +387,7 @@ In the IMC REFL path, the reflected beam is attenuated by a 1000 ppm transmissiv
 
 The PD responsivity, accounting for the quantum efficiency (QE) of 0.96 and specified in the datasheet, is 0.83 A/W. Additionally, the shot noise intercept current—defined as the photocurrent at which shot noise equals the PD dark noise—is designed to be 2 mA for LSC RF photodetectors. This corresponds to an incident power of approximately 2.4 mW, which translates to a mode mismatching of 5\%. Therefore, as long as the mode mismatching is below 5\%, the noise contribution from the PD is dominated by its dark noise.
 
-For the planned O5 operation, the EOM is designed to provide a modulation depth of approximately $20 \times 10^{-3} \, \mathrm{rad}$. This modulation generates sidebands with a total power equivalent to about 2\% of the input power. Considering this contribution, the PD noise remains dominated by its dark noise for mode mismatching up to 3\%. From the perspective of IMC noise performance, setting the mode mismatching requirement to 2\% appears reasonable.
+For the planned O5 operation, the EOM is designed to provide a modulation depth of approximately $20 \times 10^{-3} \, \mathrm{rad}$. This modulation generates sidebands with a total power equivalent to about 2\% of the mode mismatching. Considering this contribution, the PD noise remains dominated by its dark noise for mode mismatching up to 3\%. From the perspective of IMC noise performance, setting the mode mismatching requirement to 2\% appears reasonable.
 
 In terms of power loss, the PSL itself is capable of delivering up to 110 W. To achieve the target of 100 W input to the interferometer, a mode mismatching of 2\% is acceptable. Thus, this requirement balances both noise considerations and power delivery efficiency.
 
@@ -455,7 +455,7 @@ Since the power on the EOM will vary from 1 W to full power during the lock acqu
 
 Figure~\ref{fig:IMCMM_without_optimization} shows the dependence of the IMC mode mismatching on the injection power. This calculation was performed under the condition of no optimization for each sample, with the samples placed at the same position. Therefore, the optimal power is different for each sample in this scenario due to different thermal lensing effect on each crystals. The plot demonstrates that, once reasonable mode matching is achieved at low power, the deterioration in mode matching remains below 1\% across the 0–100 W power variation. This suggests that the EOM thermal lensing effect is not a critical issue for IMC mode matching degradation.
 
-It is worth noting that there was a consideration to add a translation stage under the lens for IMC mode matching, enabling adjustment of the mode matching in vacuum by compensating for the thermal lens. However, based on these results, we concluded that such a lens is unnecessary under these conditions.
+It is worth noting that there was a consideration to add a translation stage under the lens for IMC mode matching, enabling fine adjustment of the mode matching in vacuum. However, based on these discussion, we concluded that such a lens is unnecessary under these conditions.
 
 
 \begin{figure}
@@ -758,6 +758,8 @@ While the thermal lensing of the EOM has been verified to not pose a significant
 \subsection{Length fluctuation}
 The design calculations are based on assumed length fluctuations, estimated from the in-air PMC length fluctuations. However, it is possible that these assumptions underestimate the actual length fluctuations, leading to higher intensity and frequency noises in the output beam. During the testing phase, it will be necessary to evaluate the actual length fluctuation. If it is found to be larger than expected, we may need to increase the control bandwidth beyond the current design, potentially up to the kHz range. This could be achieved by switching from digital control to an analog servo system.
 
+Related to the length fluctuation, the PMC is equipped with a damping structure designed to suppress body resonance. This structure utilizes Viton sheets, clamped from above, to apply force and mitigate resonant modes. It may require redesigning to improve performance and ensure compatibility with vacuum conditions. 
+
 \subsection{Stray light control}
 The main sources of stray light are the viewport for the JAC reflection beam and the high-power beam dump located on the ISCT1 table. Assuming a few percent of mode mismatch, the power injected into these components can reach a few watts. Although the backscattered light may not directly couple with the main beam, the presence of POP and REFL PDs used for the main interferometer's ISC presents a risk. In particular, scattered light could potentially couple with DARM through auxiliary degrees of freedom.
 
@@ -776,7 +778,8 @@ We also need to align the ISCT1 table. As with the in-chamber work, the LVEA mus
 
 \section{Wiring}
 \subsection{Analog circuit}
-The main circuit is the modulator and demodulator for the length and alignment sensing. The modulation frequency is set to 
+The main circuit is the modulator and demodulator for the length and alignment sensing. These circuite will be located in PSL\_R1, PSL\_R2, ISC\_R1, ISC\_R2, ISC\_R4. Also, for tip-tilt actuation, we place the coil driver on SUS\_C4, and saterite box on SUS\_R1. The rack layout is working in progress.
+
 \subsection{CDS}
 - The model will run in l/h1imc or make new model l/h1jac?
 - 
@@ -789,20 +792,22 @@ The main electronics in the HAM1 chamber related to the JAC will be
     \item DC PD
     \item EOM
 \end{itemize}
-Each tip-tilt needs a D25 connection for OSEM sensing and control. JAC PZT, JAC thermometer, and DCPD will share a D25 cable. Therefore, four D25 connections are needed. The JAC Heater requires high current and is planned to use the cable used for the SR3 ring heater. The EOM has four electrodes, and each connection will use a coax cable.
+Each tip-tilt needs a D25 connection for OSEM sensing and control. JAC PZT, JAC thermometer, heater, and DCPD will share a D25 cable. Therefore, four D25 connections are needed. The EOM has four electrodes, and each connection will use a coax cable.
 
 Summarizing these cables, the required feedthroughs are:
 \begin{itemize}
     \item 2 x dual-D25: \href{https://dcc.ligo.org/LIGO-D2000223}{D2000223}
-    \item 1 x Heater flange (Accuglass COTS part 100800) 750W capable: \href{https://dcc.ligo.org/LIGO-D1600090}{D1600090}
     \item 1 x five-coax (Accuglass\_25D-5CX-450): \href{https://dcc.ligo.org/LIGO-D1600167}{D1600167}
 \end{itemize}
 \section{Vacuum compatibility}
 \subsection{Cavity}
-\subsection{Translation stage}
+
 \subsection{Electronics}
 
 \section{Test plan}
+The test configuration is 
+\subsection{Jitter attenuation}
+
 \section{Installation plan}
 \section{}
 
