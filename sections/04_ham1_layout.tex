@@ -1,0 +1,221 @@
+\section{HAM1 layout}
+\subsection{Overview}
+
+The HAM1 layout is shown in Fig.~\ref{fig:HAM1 layout LHO} and Fig.~\ref{fig:HAM1 layout LLO}. The main components in HAM1 are the JAC, two tip-tilt steering mirrors~\cite{D1001396_v3}, two periscopes~\cite{D1201342_v5}, and a new in-vacuum EOM~\cite{D2500130_v3}.
+
+The input beam from the PSL is first adjusted in height by the upstream periscope to match the JAC input height. After passing through the JAC, the beam height is readjusted by the downstream periscope.
+
+The angular actuators used for JAC and IMC alignment are the tip-tilt suspensions JM1 and JM3. JM1 is placed upstream of the JAC, and JM3 is located downstream. We previously considered installing an additional suspended mirror, JM2, after the JAC to provide another degree of freedom for IMC alignment control. However, due to space constraints, JM2 was implemented as a fixed mirror. For potential future upgrades, we retain the name ``JM2,'' although it no longer follows the standard naming convention.
+
+The JAC reflection beam (JAC\_REFL) is directed to ISCT1~\cite{D1201103_v20} at LLO and to IOT1~\cite{E2500019_x0} at LHO. ISCT1 is a shared table accommodating additional ISC paths such as ALS, REFL, and POP, whereas IOT1 is a new optical table located on the $-y$ side of HAM1 and is dedicated solely to the JAC\_REFL path.
+
+A new in-vacuum EOM is installed downstream of the JAC. Three mode-matching lenses are used to match the beam to the IMC eigenmode. A small fraction of the leakage light from the JAC is picked off and sent to a DC photodiode for transmission power monitoring.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{Figs/Layout_ISI_LHO.pdf}
+    \caption{HAM1 layout design at LHO. The main components in HAM1 are the JAC, three tip-tilt steering mirrors, two periscopes, and an EOM.}
+    \label{fig:HAM1 layout LHO}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{Figs/Layout_ISI_LLO.pdf}
+    \caption{HAM1 layout design at LLO. Compared to the LHO design, the JAC\_REFL beam path is directed in the opposite direction, toward ISCT1.}
+    \label{fig:HAM1 layout LLO}
+\end{figure}
+
+\subsection{Seismic Isolation}\label{sec:seismic_isolation}
+
+Seismic motion introduces angular jitter noise on the output beam, as described in Sec.~\ref{sec:output_jitter}. In this subsection, we evaluate the seismic-isolation performance of the HAM1 table by comparing the jitter induced by the ISI system planned for installation in the HAM1 chamber with that induced by the current HAM1 optical table. The present HAM1 table employs a three-stage seismic-isolation stack.
+
+The table motion of the HAM1 ISI is assumed to be identical to that of the HAM2 ISI. The motion data were acquired on Aug.\ 07, 2023 at 04:00:00~UTC, using the channel \texttt{\$(site)1:ISI-HAM2\_BLND\_GS13\$(DoF)\_IN1\_DQ}. The HAM1 stack motion is modeled using measured values~\cite{alog39399} below 20~Hz for horizontal motion and below 100~Hz for vertical motion. Above these frequencies, a $1/f^6$ roll-off is assumed. These motions are shown in Fig.~\ref{fig:tablemotion}. Although the stack provides stronger attenuation at high frequencies, the ISI offers significantly better isolation below 20~Hz (horizontal) and below 100~Hz (vertical).
+
+For the output jitter noise calculation, the JAC design is assumed to be identical to the aLIGO PMC. The expected output jitter noise for each table configuration is shown in Fig.~\ref{fig:ISIvsstack}, and the corresponding projection to gravitational-wave sensitivity is presented in Fig.~\ref{fig:ISIvsstack_proj}. In terms of raw table motion, the HAM1 stack provides slightly better isolation above $\sim20$~Hz in the horizontal direction and shows comparable vertical isolation up to $\sim100$~Hz, with the stack exhibiting better attenuation at higher frequencies. However, when the jitter is projected onto DARM sensitivity, the ISI configuration outperforms the stack across the entire observation band. At high frequencies, this is because the dominant contribution arises from residual PSL jitter that the JAC cannot completely suppress, rendering the marginally better high-frequency stack isolation ineffective. At low frequencies, the ISI provides substantially superior seismic isolation, leading to significantly reduced jitter coupling. Consequently, the stack configuration results in noticeably larger jitter noise below $\sim30$~Hz, in some cases approaching the A+ target sensitivity.
+
+From the standpoint of seismic-isolation performance, achieving the A+ sensitivity across the full frequency band---particularly at low frequencies---requires the improved isolation provided by the ISI.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\linewidth]{Figs/HAM1table.pdf}
+    \caption{HAM1 table motion assumed in this study. Solid lines: measured HAM1 stack motion (horizontal below 20~Hz, vertical below 100~Hz; $1/f^6$ above these frequencies). Dashed lines: HAM2 ISI blend data used as a proxy for the planned HAM1 ISI.}
+    \label{fig:tablemotion}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\linewidth]{Figs/PMC_jitter_att.pdf}
+    \caption{Expected jitter noise of the JAC output beam. The orange curve represents the residual input jitter (blue) after attenuation by the JAC. The red and green curves show the jitter introduced by the HAM1 stack and the ISI table motion, respectively.}
+    \label{fig:ISIvsstack}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\linewidth]{Figs/ISIvsStuck_jitter.pdf}
+    \caption{Projected jitter noise contribution to the gravitational-wave sensitivity for the ISI and HAM1 stack seismic isolation configurations.}
+    \label{fig:ISIvsstack_proj}
+\end{figure}
+
+\subsection{Mode matching}
+The HAM1 layout is set based on the mode matching to both the JAC and the IMC. In each case, lenses are used instead of curved mirrors; the lens specifications are given in~\cite{E2400437_v1,E2500026_v1}. Mode matching to the JAC is performed in the PSL, while mode matching to the IMC is performed on HAM1.
+
+Table coordinates for the PSL table, chambers, and ISI table follow \cite{T1000400_v1,T0900340_v2,E1200274_v3,E1200616_v7}. Because the PSL periscope height is not tabulated, the beam height is estimated from the HAM2 table coordinate and HAM2 periscope heights, assuming the PSL beam propagates horizontally.
+
+\subsubsection{Requirement for the mode mismatching}
+In the IMC REFL path, the reflected beam is attenuated by a 1000 ppm transmissive mirror and a 50/50 beam splitter before reaching the photodetector (PD). As a result, for a 100 W beam reflected from the IMC, approximately 50 mW of power is delivered to the PD.
+
+The PD responsivity, accounting for the quantum efficiency (QE) of 0.96 and specified in the datasheet, is 0.83 A/W. Additionally, the shot noise intercept current—defined as the photocurrent at which shot noise equals the PD dark noise—is designed to be 2 mA for LSC RF photodetectors. This corresponds to an incident power of approximately 2.4 mW, which translates to a mode mismatching of 5\%. Therefore, as long as the mode mismatching is below 5\%, the noise contribution from the PD is dominated by its dark noise.
+
+For the planned O5 operation, the EOM is designed to provide a modulation depth of approximately $20 \times 10^{-3} \, \mathrm{rad}$. This modulation generates sidebands with a total power equivalent to about 2\% of the mode mismatching. Considering this contribution, the PD noise remains dominated by its dark noise for mode mismatching up to 3\%. From the perspective of IMC noise performance, setting the mode mismatching requirement to 2\% appears reasonable.
+
+In terms of power loss, the PSL itself is capable of delivering up to 110 W. To achieve the target of 100 W input to the interferometer, a mode mismatching of 2\% is acceptable. Thus, this requirement balances both noise considerations and power delivery efficiency.
+
+We don't have such strict requriement for the JAC mode-mismatching, since in any case the noise will be dominated by the JAC length motion, so we don't care so much about the PD sensing noise. But it's also reasonable to set same requirement for the JAC mode-mismatching from the view of the throughput. 
+\subsubsection{PSL to JAC}
+
+The output beam from the PMC is injected into the EOM without any intervening lenses. This EOM provides the $f_1$/$f_2$ phase modulation, and although it will be relocated into HAM1 as discussed in the following section, the EOM is still required here for JAC sensing. Therefore, it is preferable to preserve the current beam size on the EOM. In addition, to avoid introducing new layout complications, the beam path from the EOM to the PSL periscope is kept identical to the present configuration.
+
+Given these constraints, the first requirement for the JAC mode-matching design is the allowed region in which mode-matching lenses can be placed. The permissible longitudinal range begins 4~in.\ downstream of the PSL EOM and ends 4~in.\ upstream of the bottom mirror of the PSL periscope. The distance between these two points is approximately 2.2~m in the current layout, and this defines the allowed lens-placement interval. A second requirement comes from the desired JAC position: to realize a feasible HAM1 optical layout, the target waist location was set to 7.7–7.9~m downstream of the PMC.
+
+For the mode-matching calculation, the code enumerates all possible lens-train combinations, places lenses on a coarse $z$-grid within the allowed region, and from each grid point runs a Nelder–Mead optimization to fine-tune the lens positions so that the resulting propagated beam waist matches the target. Any lens train achieving a mode mismatch below a defined threshold is recorded, storing the lens positions, the resulting beam parameters, and the mismatch. The entire search is parallelized over all candidate trains and returns only the accepted solutions.
+
+The PSL layout of the selected solutions satisfying these constraints are shown in Fig.~\ref{fig:PSL_layout}, and the beam propagation is shown in Fig.~\ref{fig:JAC_modematch}. The  The final design uses three mode-matching lenses: IO\_MB\_L1, IO\_MB\_L2, and IO\_MB\_L3, with focal lengths of 0.56~m (convex; RoC 0.25~m), $-0.33$~m (concave; RoC 0.15~m), and 1.67~m (concave; RoC 0.75~m), respectively. Two lenses are located close to the EOM, and the third lens is located just before the output periscope. The Gouy-phase separations between the first two lenses and the third lens are approximately 20 degrees. 
+
+Figure~\ref{fig:JAC_modematch2d} illustrates the sensitivity of the mode-matching performance to the lens positions. In these contour plots, the left panels show the waist-position shift (normalized by the Rayleigh range) as each lens is moved, the middle panels show the corresponding waist-size change, and the right panels show the total mode mismatch, given by the quadratic sum of the two. These results indicate that even if any of the lenses are displaced by $\pm 1$~in., the resulting mode mismatch remains below 2\%. Furthermore, the middle panels reveal that for lens pairs involving L1 and L3, the waist-size and waist-position variations are nearly orthogonal: translating L1 primarily changes the waist size, whereas translating L3 mainly shifts the waist position. This effective diagonalization of the two parameters demonstrates that the system permits relatively independent control of the waist size and waist location—greatly simplifying mode-matching alignment in practice.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{Figs/Layout_PSL_LLO.pdf}
+    \caption{PSL layout in LLO showing the three mode-matching lenses on the PSL table (same configuration used at LHO). Two lenses are located close to the EOM, and the third lens is located just before the output periscope.}
+    \label{fig:PSL_layout}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{Figs/JAC_MM_BP_LHO.pdf}\\[4pt]
+    \includegraphics[width=1\linewidth]{Figs/JAC_MM_BP_LLO.pdf}
+    \caption{Beam propagation from the PSL to the JAC. Top: LHO layout. Bottom: LLO layout. In both cases, the first waist is that of the PMC, IO\_MB\_MX are the PSL mirrors defined in Fig.~\ref{fig:PSL_layout}, and three mode-matching lenses are placed between the EOM and the PSL periscope.}
+    \label{fig:JAC_modematch}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{Figs/JAC_MM_IO_MB_L1_IO_MB_L2_LLO.pdf}\\[2pt]
+    \noindent\rule{\linewidth}{0.4pt}\\[2pt]
+    \includegraphics[width=1\linewidth]{Figs/JAC_MM_IO_MB_L1_IO_MB_L3_LLO.pdf}\\[2pt]
+    \noindent\rule{\linewidth}{0.4pt}\\[2pt]
+    \includegraphics[width=1\linewidth]{Figs/JAC_MM_IO_MB_L2_IO_MB_L3_LLO.pdf}
+    \caption{Contour maps showing the dependence of mode mismatch on the positions of each lens pair (IO\_MB\_L1–L2, IO\_MB\_L1–L3, and IO\_MB\_L2–L3; LLO configuration). The horizontal and vertical axes denote the longitudinal positions of the first and second lenses in each pair. Each column shows (left) waist-position error, (middle) waist-size error, and (right) total mode mismatch. Upper rows show normalized quantities; lower rows show absolute values. This plot is showing the solution for the LLO. The LHO has same trend.}
+    \label{fig:JAC_modematch2d}
+\end{figure}
+\subsubsection{JAC to IMC}
+
+The mode matching between the JAC and the IMC is performed on the HAM1 ISI table. Two steering mirrors are placed between the JAC and the IMC to form a zig-zag beam path, allowing for path-length adjustment without altering the HAM2 layout. The center-to-center separation between the HAM1 and HAM2 chambers is 2570~mm, and with an ISI table width of 1930~mm, the remaining edge-to-edge distance between the chambers is 640~mm. The beam path on HAM2 is fixed, and the distance from the HAM2 edge to the IMC waist position (located outside the IMC) is 1420~mm. By introducing a zig-zag path on HAM1, a total path length of approximately 3~m can be obtained, establishing the first constraint for the mode-matching design.
+
+A second constraint arises from the IMC ASC requirements. Since there are no angular actuators on HAM2, it is advantageous to build an effective Gouy-phase telescope within HAM1 that provides both IMC mode matching and sufficiently large Gouy-phase separation for ASC actuation. In particular, the two steering mirrors that form the zig-zag beam path (JM2 and JM3) should ideally have a Gouy-phase separation close to 90 degrees, which diagonalizes the pitch and yaw sensing responses. In the present installation, however, only JM3 is equipped with a tip-tilt actuator, while JM2 remains a fixed mirror, so active ASC actuation cannot be performed using both mirrors. Even so, arranging the telescope such that these two Gouy phases are approximately orthogonal is beneficial for alignment robustness and provides a clear path toward future upgrades in which both mirrors may be made actuated.
+
+One remaining uncertainty is the thermal lensing produced by the ISC EOM. This EOM replaces the PSL EOM and generates the modulation sidebands required for interferometer control. Its thermal-lensing behavior will be discussed in the next section. In this study, the circulating power on the EOM is assumed to be 100~W. The absorption coefficient is taken as a representative measured value of $\alpha = 500$~ppm/cm, and we use an RTP thermo-optic coefficient of $dn/dT = 2.79\times10^{-6}$/K and thermal conductivity of $\kappa=3$~W/(K\,m)~\cite{G070376_x0}.
+
+Considering these constraints, the proposed mode-matching solution is shown in Fig.~\ref{fig:IMC_modematching}. The first lens (JAC\_L1) is positioned immediately after the EOM to focus the beam near the first steering mirror (JM2), producing a Gouy-phase separation of about 100 degrees between JM2 and JM3. JAC\_L1 is placed 0.38~m from the JAC output mirror, with a focal length and radius of curvature of 0.44~m and 0.25~m, respectively. Two additional lenses (with RoC values of 2~m and 1~m) are positioned between JM3 and the output periscope to complete the mode-matching telescope.
+
+The mode-mismatch contour maps as functions of lens position are shown in Fig.~\ref{fig:IMC_modematching1}. A key advantage of this solution is that the waist size is relatively insensitive to lens-position errors. Even with a $\pm1$~in.\ displacement of any lens, the resulting waist-size variation is only 80~$\mu$m—approximately 4\% of the IMC waist size—which corresponds to a mode mismatch of only 0.16\% in power. The waist position is more sensitive than the waist size, but the tolerances remain practical: lens-placement accuracy of about 2~in.\ is sufficient to maintain a mode mismatch below 2\%.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{Figs/IMC_MM_BP_LHO.pdf}\\[4pt]
+    \includegraphics[width=1\linewidth]{Figs/IMC_MM_BP_LLO.pdf}
+    \caption{Beam propagation from the JAC to the IMC. Top: LHO layout. Bottom: LLO layout. In both cases, the first waist is the JAC waist, three lenses provide the IMC mode matching, JM2 and JM3 are the steering mirrors for the IMC alignment.}
+    \label{fig:IMC_modematching}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{Figs/IMC_MM_JAC_L1_JAC_L2.pdf}\\[2pt]
+    \noindent\rule{\linewidth}{0.4pt}\\[2pt]
+    \includegraphics[width=1\linewidth]{Figs/IMC_MM_JAC_L1_JAC_L3.pdf}\\[2pt]
+    \noindent\rule{\linewidth}{0.4pt}\\[2pt]
+    \includegraphics[width=1\linewidth]{Figs/IMC_MM_JAC_L2_JAC_L3.pdf}
+    \caption{Mode-mismatch contour maps for all lens pairs (JAC\_L1–JAC\_L2, JAC\_L1–JAC\_L3, and JAC\_L2–JAC\_L3). For each plot, the horizontal and vertical axes represent the longitudinal positions of the first and second lenses in the pair. Columns show waist-position error (left), waist-size error (middle), and total mode mismatch (right); upper rows are normalized, and lower rows give absolute values.}
+    \label{fig:IMC_modematching1}
+\end{figure}
+
+\subsection{Thermal Lens of the EOM}\label{sec:EOM_thermal}
+
+Since the power on the ISC EOM will vary from 1 W to full power during the lock acquisition, the mode shape incident on the IMC will change due to the thermal lensing of the ISC EOM. To estimate this effect, the thermal lensing effect was tested for three samples of the RTP crystal~\cite{a}. 
+
+Figure~\ref{fig:IMCMM_without_optimization} summarizes the impact of the measured thermal lensing on the IMC mode matching. The left panel shows the thermal-lens optical power as a function of the injected optical power, computed from the measured absorption of the three RTP samples. Although the samples exhibit slightly different absorption coefficients, they all show that the thermal-lens strength increases from approximately 0~mD at low power to several hundred millidiopters over the 0--120~W range. Using these calculated thermal-lens powers, the corresponding IMC mode mismatch was then computed for each sample as a function of input power, as shown in the right panel. In other words, the right panel represents the IMC mode mismatch obtained when the EOM power is varied, with the thermal lens determined by the measured absorption of each crystal.
+
+Once a reasonable mode-matching condition is established at low power, the additional degradation in mode matching induced by the evolving thermal lens remains small: across the 0--100~W operating range, the mode mismatch stays well below the 2\% level, typically below 1\%. This confirms that the EOM thermal lens does not pose a significant limitation for IMC mode matching under the expected operating conditions.
+
+It is worth noting that there was a consideration to add a translation stage under the lens for IMC mode matching, enabling fine adjustment of the mode matching in vacuum. However, based on these discussion, we concluded that such a lens is unnecessary under these conditions.
+
+
+\begin{figure}
+\centering
+\begin{minipage}{0.48\linewidth}
+    \includegraphics[width=\linewidth]{Figs/Optical_power.pdf}
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\linewidth}
+    \includegraphics[width=\linewidth]{Figs/IMCMM_without_optimization.pdf}
+\end{minipage}
+\caption{Left: thermal-lens optical power versus input power derived from the measured absorption of the three RTP samples. Right: IMC mode-mismatching versus input power for the same three samples.}
+\label{fig:IMCMM_without_optimization}
+\end{figure}
+\subsection{Height Adjustment}
+
+The beam emerging from the PSL is currently approximately 12.5~in.\ above the surface of the ISI table~\cite{alog84231,alog76655}. The beam height on HAM1, however, is set to 4~in.\ to match the JAC assembly and tip-tilt suspension height, requiring the beam to be lowered by about 8.5~in.\ upon entering HAM1. At the same time, the HAM2 optical layout imposes an additional constraint: the beam must pass above the input Faraday isolator (IFI) when propagating from HAM1 into HAM2. Consequently, after passing through the JAC, the output beam height must be raised back to approximately 12.5~in.\ to clear the IFI and interface properly with the HAM2 layout.
+
+The first option for achieving the required height transition is to introduce periscopes on the HAM1 input and output paths, as illustrated in the proposed layout. This approach preserves the existing PSL beam height and requires only the addition of a corresponding periscope. Although it adds optical components, the complexity is modest, and the design leverages existing, well-tested periscope hardware already deployed in HAM2.
+
+A second option is to reduce the beam height directly within the PSL. This would allow the PSL periscope to be shortened, thereby reducing input jitter. However, implementing this solution would require drilling a new feedthrough port in the PSL enclosure, fabricating a new PSL periscope, redesigning the HAM1 flange, and reconfiguring the PSL optical layout. These changes introduce substantial engineering effort, increased risk, and potential schedule impact.
+
+A third possibility is to route the JAC beam through an alternative PSL--HAM1 port located at table height and currently used for the ALS beam (BF1~\cite{D1101000_v3}). While this path is available, adopting it would still require PSL layout modifications, and the close proximity of the JAC and ALS beams could introduce unwanted scattering or cross-coupling between the two systems.
+
+Given the significantly greater complexity associated with the second and third options, the first solution—using a pair of periscopes in HAM1 while keeping the existing PSL beam height unchanged—is the most practical and lowest-risk approach. The jitter impact is expected to be minimal, as a similar periscope is already present in HAM2, and the additional jitter introduced by the new periscopes is not expected to differ substantially.
+
+For completeness, we note that other conceptual approaches were briefly considered. One idea was to construct a two-level optical table in HAM1 to accommodate both the current 12.5~in.\ PSL beam height and the 4~in.\ JAC height requirement without altering the PSL or HAM2 layouts. Another alternative was to redesign the entire JAC and surrounding HAM1 optics to operate at 12.5~in.\ throughout. Both approaches, however, introduce substantial mechanical complexity, require new suspension designs, and create additional potential sources of beam jitter. For these reasons, they were deemed impractical and were excluded from consideration.
+
+In conclusion, we propose adopting the periscope-based height-adjustment scheme as the baseline design. While lowering the PSL beam height may offer advantages for future upgrades, the present solution provides the best balance of feasibility, optical performance, and implementation risk.
+
+\subsection{Polarization Rotation}
+The PSL output is $s$-polarized, as defined by the thin-film polarizer at the downstream end of the PSL enclosure, and the IMC is designed for $s$ polarization. In contrast, the JAC (PMC) and the in-vacuum EOM operate with $p$ polarization. Therefore, a $90^\circ$ rotation of the polarization is required between the PSL and the JAC in order to satisfy the differing polarization requirements of the upstream and downstream subsystems.
+
+As described in the previous section, a periscope is already required on HAM1 to reduce the PSL beam height to the ISI-table height. In addition to providing the required height transition, the periscope geometry can also be used to rotate the output beam polarization. When the periscope is arranged so that the input and output beam axes are rotated by $90^\circ$, the local incidence planes of the two mirrors—and thus the definition of the $s/p$ polarization basis—rotate by the same amount. As a result, the input $s$ polarization is mapped to $p$ polarization for the downstream JAC and EOM optics.
+
+This approach provides a practical and low-risk method for achieving the required polarization rotation without introducing additional optical components. In particular, it avoids the need for a high-power, low-scatter half-wave plate, which would otherwise have to be placed in vacuum and would add complexity, cost, and potential scattering noise. For these reasons, the HAM1 periscope design intentionally departs from the HAM2 implementation—where no polarization rotation is introduced—and adopts a geometry that produces a controlled $90^\circ$ beam-axis rotation. The detailed mechanical and optical design of the updated periscope is documented in~\cite{T2500103}.
+
+The required accuracy of this polarization rotation is modest. As discussed in Sec.~\ref{subsubsec:mispol}, the tolerance derived from length-noise–to–RIN coupling allows polarization misalignment of up to approximately $5^\circ$. Furthermore, the IMC throughput requirement of 2\% corresponds to a polarization-rotation tolerance of $\arcsin(\sqrt{0.02}) \approx 8^\circ$. The achievable mechanical alignment precision of the periscope is well within these limits, indicating that the periscope-based scheme comfortably satisfies all polarization-rotation requirements without the need for additional optics.
+
+\subsection{Viewport}
+
+The JAC reflected beam is routed from HAM1 to ISCT1 at LHO and to IOT1 at LLO. When the JAC loses lock, the full input power is reflected, and this entire power passes through the corresponding viewport. Therefore, the viewport must be capable of handling high optical power without introducing thermal deformation, scattering, or absorption-related damage.
+
+From the layout constraints, viewport~A1F5~\cite{D1101000_v3} was selected for LLO and viewport~A2F3 for LHO. These viewports are dedicated to the JAC\_REFL beam path and are not shared with any other beam, which is advantageous for avoiding stray light, interference, or alignment conflicts with other subsystems.
+
+The performance requirements for this viewport are similar to those for the IMC REFL viewport and for the PSL--HAM1 injection viewport. For consistency and to minimize qualification effort, we propose using the same viewport type as those systems~\cite{D1101000_v3}.
+
+\subsection{Power Adjustment}
+
+During lock acquisition, the output power from the PSL varies from a few watts up to 100~W. This power adjustment is performed using a half-wave plate (HWP) followed by a thin-film polarizer (TFP). In the current system, the HWP is mounted on a motorized rotation stage located downstream of the PSL, allowing remote control of the injected power.
+
+During the design phase, we considered whether the power should continue to be adjusted in the PSL area, as in the current configuration, or whether the power-control optics should be relocated downstream to HAM1, i.e., after the JAC. Locating the power-control mechanism in HAM1 would offer the benefit that both the JAC and the in-vacuum EOM would operate at constant optical power, potentially improving thermal stability. This was of particular interest because of the concern that the EOM’s thermal lens might introduce undesirable mode distortions.
+
+However, implementing a motorized rotation stage inside the vacuum system would require a new mechanical design and fabrication effort, along with additional engineering risk. As discussed in Sec.~\ref{subsubsec:mispol} and in the thermal-lens analysis of Sec.~\ref{sec:EOM_thermal}, the thermal lensing of the EOM is sufficiently small across the expected operating power range, and the JAC is likewise expected to tolerate the power variation without significant thermal impact, based on prior experience with the PMC.
+
+Considering these factors, we conclude that maintaining the existing power-adjustment scheme at the PSL is the most practical and reliable solution, and relocating the power-control optics to HAM1 is unnecessary.
+
+\subsection{Leakage Port from JAC}
+
+The power leaking from the JAC via mirrors other than the input and output couplers is designed to be sensed or dumped in vacuum. This approach prevents direct observation of the leakage beam with a camera; however, this is not a significant limitation, as the IMC REFL camera can serve as an effective diagnostic channel.
+
+It is nevertheless worthwhile to consider the option of routing this leakage beam out of the chamber. One possible application is the ISS inner loop, which currently uses a photodetector monitoring the leak light from the PMC. Given the potential for excess noise originating from the JAC, relocating the ISS monitoring PD to one of the JAC output beams could reduce sensing noise and improve overall performance. Enabling such a configuration would require modifications to the ISCT1 or IOT1 layout and associated cabling. A similar argument could be made for the frequency-stabilization system, although the complexity of its optical path makes such changes more involved.
+
+If leakage-beam extraction is implemented, the optical power levels must be considered. For a 100~W JAC input, the leakage power at these ports is expected to be on the order of 300~mW, which is too high to be sent directly to a photodetector. To reduce the power to a suitable level, we propose using an uncoated fused-silica laser window~\cite{C2500078_v2}. With a typical reflection of approximately 0.6\%, the power incident on the PD would be reduced to about 1~mW, which is compatible with standard photodiodes~\cite{D1700116_v3}. 
+
+
+\subsection{Stray Light Control}
+
+Stray light in HAM1 will be managed using standard SLiC beam dumps. All expected secondary beams, including those discovered during in-vacuum alignment, will be captured using standard SLiC dumps~\cite{D1800140_v2}, and no additional SLiC development is anticipated at this stage. In particular, the ghost beams generated by the steering mirrors and by the AR surfaces of the EOM will be terminated with these beam dumps, as indicated in the layout diagrams in Figs.~\ref{fig:HAM1 layout LHO} and~\ref{fig:HAM1 layout LLO}. In addition, a DLC-coated fused-silica plate (identical to those used in the SLiC beam dumps) will be mounted at the transmission port of each periscope to intercept any residual transmitted light.
+
+The primary potential sources of stray light in this system are the viewport used for the JAC reflection beam and the high-power beam dump located on the ISCT1 table. With a few percent of mode mismatch, several watts of optical power may be incident on these components. While the backscattered light from these locations may not directly couple into the main interferometer beam path, its presence is nevertheless a concern due to the nearby POP and REFL photodiodes associated with the main ISC system. Scattered light from these elements could, in principle, couple into DARM through auxiliary degrees of freedom, and thus these locations must be treated as critical stray-light sources.

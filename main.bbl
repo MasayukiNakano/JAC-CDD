@@ -1,0 +1,85 @@
+\begin{thebibliography}{10}
+
+\bibitem{O4instrument}
+E.~Capote, W.~Jia, N.~Aritomi, M.~Nakano, V.~Xu, and et~al.
+\newblock Advanced ligo detector performance in the fourth observing run.
+\newblock {\em Phys. Rev. D}, 111:062002, Mar 2025.
+
+\bibitem{alog64098}
+\href{https://alog.ligo-la.caltech.edu/aLOG/index.php?callRep=64098}{aLOG
+  64098}, 2023.
+
+\bibitem{finesse}
+Daniel~David Brown and Andreas Freise.
+\newblock Finesse.
+\newblock Technical report, May 2014.
+\newblock {The software and source code is available at
+  \href{http://www.gwoptics.org/finesse}{gwoptics.org/finesse}.}
+
+\bibitem{D1001396_v3}
+{aLIGO Tip-Tilt (HTTS) Mirror Assembly}.
+\newblock \href{https://dcc.ligo.org/LIGO-D1001396-v3}{LIGO-D1001396-v3}, 2010.
+
+\bibitem{D1201342_v5}
+{ALIGO IO H1 IN VACUUM PERISCOPE}.
+\newblock \href{https://dcc.ligo.org/LIGO-D1201342-v5}{LIGO-D1201342-v5}, 2012.
+
+\bibitem{D2500130_v3}
+{aLIGO, JAC, EOM, IN-VAC EOM ASSEMBLY}.
+\newblock \href{https://dcc.ligo.org/LIGO-D2500130-v3}{LIGO-D2500130-v3}, 2025.
+
+\bibitem{D1201103_v20}
+{ISCT1 Optical Layout}.
+\newblock \href{https://dcc.ligo.org/LIGO-D1201103}{LIGO-D1201103-v20}, 2012.
+
+\bibitem{E2500019_x0}
+{aLIGO, JAC, IOT1}.
+\newblock \href{https://dcc.ligo.org/LIGO-E2500019-x0}{LIGO-E2500019-x0}, 2025.
+
+\bibitem{alog39399}
+{LIGO aLOG Entry 39399}.
+\newblock
+  \href{https://alog.ligo-la.caltech.edu/aLOG/index.php?callRep=39399}{LIGO
+  aLOG Entry 39399}, 2025.
+
+\bibitem{E2400437_v1}
+{2" Lenses for the Jitter Attenuation Cavity}.
+\newblock \href{https://dcc.ligo.org/LIGO-E2400437-v1}{LIGO-E2400437-v1}, 2024.
+
+\bibitem{E2500026_v1}
+{Custom Optics: 1" lenses AR/AR 1064nm and 532nm}.
+\newblock \href{https://dcc.ligo.org/LIGO-E2500026-v1}{LIGO-E2500026-v1}, 2025.
+
+\bibitem{T1000400_v1}
+{ALIGO PSL TABLE LOCATIONS}.
+\newblock \href{https://dcc.ligo.org/LIGO-T1000400-v1}{LIGO-T1000400-v1}, 2010.
+
+\bibitem{T0900340_v2}
+{aLIGO Coordinate Systems}.
+\newblock \href{https://dcc.ligo.org/LIGO-T0900340-v2}{LIGO-T0900340-v2}, 2009.
+
+\bibitem{E1200274_v3}
+{ALIGO IO L1 MASTER COORDINATE LIST}.
+\newblock \href{https://dcc.ligo.org/LIGO-E1200274-v3}{LIGO-E1200274-v3}, 2012.
+
+\bibitem{E1200616_v7}
+{ALIGO IO H1 MASTER COORDINATE LIST}.
+\newblock \href{https://dcc.ligo.org/LIGO-E1200616-v7}{LIGO-E1200616-v7}, 2012.
+
+\bibitem{G070376_x0}
+{Electro-optics for high power operation}.
+\newblock \href{https://dcc.ligo.org/LIGO-G070376-x0}{LIGO-G070376-x0}, 2007.
+
+\bibitem{alog84231}
+\href{https://alog.ligo-wa.caltech.edu/aLOG/index.php?callRep=84231}{alog84231},
+  2025.
+
+\bibitem{alog76655}
+\href{https://alog.ligo-la.caltech.edu/aLOG/index.php?callRep=76655}{alog76655},
+  2025.
+
+\bibitem{D1101000_v3}
+{aLIGO, high quality, .75 deg wedged, 6" Viewport Assembly}.
+\newblock \href{https://dcc.ligo.org/LIGO-D1101000-v3}{LIGO-D1101000-v3}, 2011.
+
+\end{thebibliography}

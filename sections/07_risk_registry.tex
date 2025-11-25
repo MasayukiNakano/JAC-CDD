@@ -1,0 +1,87 @@
+\section{Risk Registry}
+\subsection{JM misalignment}
+When the tip-tilt suspensions (JMs) are accidentally misaligned, the full-power beam may swing inside the chamber. If the motion is too large, the beam could hit and potentially damage in-chamber components. To evaluate this risk, the beam position motion at each optic as a function of JM misalignment is calculated.
+
+The beam position motion can be described by the following equation:
+\begin{equation}
+    \begin{pmatrix}x_\text{out}\\\theta_\text{out}\end{pmatrix} = ABCD\begin{pmatrix}x_\text{in}\\\theta_\text{in}\end{pmatrix}
+\end{equation}
+where $ABCD$ is the ABCD matrix from the misaligned optic (acting as the motion source) to the optic of interest. Here, $x$ and $\theta$ represent the beam position and propagation angle, while "in" and "out" indicate the moving optic and the optic of interest, respectively. Assuming the beam is centered on the misaligned optic, the beam position on the optic of interest can be calculated as:
+\begin{equation}
+    x_\text{out} = B\theta_\text{in}.
+\end{equation}
+Thus, the maximum angle at which the beam does not deviate from the optic can be calculated as:
+\begin{equation}
+    \theta_\text{max} = \frac{d\cos\theta_\text{AOI}}{B},
+\end{equation}
+where $d$ is the diameter of the optic and $\theta_\text{AOI}$ is the angle of incidence.
+
+As long as the misalignment of the mirror does not exceed this angle for all optics along the beam path to the beam dump, the beam will enter the beam dump properly and be dumped without issue.
+
+\subsubsection*{JM1}
+JM1 is located before the JAC, and the beam will be reflected by the JAC input coupler and directed to ISCT1. The first BS on the ISCT1 (JACR\_BS1) reflects most of the power, and the beam is directed to the beam dumps (JACR\_BD1 and BD2). Therefore, we need to consider the path from JM1 to the JACR beam dumps (BDs) when evaluating the JM1 misalignment. There is one lens along this path (JACR\_L1), so the ABCD matrix will differ after JACR\_L1.
+
+Before JACR\_L1, the ABCD matrix is:
+\begin{equation}
+    B = L
+\end{equation}
+and after JACR\_L1, it will be:
+\begin{equation}
+    B =  \left( 1 - \frac{L_f}{f} \right)L + \frac{L_f^2}{f} = (-3.3\times L+14.3)
+\end{equation}
+where $L$ is the distance from the misaligned optic, $f$ is the focal length of the lens, and $L_f$ is the distance of the lens from the misaligned optic. The distances and the maximum allowable angles are shown in Table~\ref{tab:JM1_misalign}. The error is caused by position uncertainty, with all optics assumed to have a position error of 5 mm. The minimum allowance is for the beam dump and 3 mrad. 
+
+\begin{table}[htbp]
+    \centering
+    \begin{tabular}{|c|c|c|}
+    \hline
+    Optic Name & Distance (m) & Max Angle (degrees) \\
+    \hline
+    JAC input & 0.2750 & 36.11(66) \\
+    JAC\_M2 & 0.4550 & 31.56(35) \\
+    JACR\_M1 & 2.6850 & 5.351(11) \\
+    JACR\_M2 & 3.2410 & 4.4341(67) \\
+    JACR\_L1 & 3.3299 & 6.127(29) \\
+    JACR\_M3 & 3.4315 & 4.796(42) \\
+    JACR\_BS1 & 3.5966 & 5.862(62) \\
+    JACR\_BS4 & 3.7744 & 7.68(10) \\
+    JACR\_BD & 3.9268 & 3.206(55) \\
+    \hline
+    \end{tabular}
+    \caption{Distances and maximum allowable angles for each optic.}
+    \label{tab:JM1_misalign}
+\end{table}
+
+
+\subsubsection*{JM2 and JM3}
+The beam reflected by JM2 and JM3 directes to HAM2 and reflected by input mirror of the IMC, and directed out to IOT1. We don't have no lens between JM2 and JM3, so the maximum allowance angle is always smaller for JM2 than JM3. Thus, we only show the calculation of JM2 here.
+
+\begin{table}[htbp]
+    \centering
+    \begin{tabular}{|c|c|c|c|}
+    \hline
+    Optic Name & Distance from JM2 (m) & Max Angle JM2 (mrad) & Max Angle JM3 (mrad) \\
+    \hline
+    JAC\_M4 & 2.1352 & 8.315 $\pm$ 0.017 & 14.417 $\pm$ 0.048 \\
+    JAC\_M5 & 2.3562 & 8.378 $\pm$ 0.015 & 12.847 $\pm$ 0.035 \\
+    MCperi\_t & 3.8477 & 8.848 $\pm$ 0.012 & 7.401 $\pm$ 0.015 \\
+    MCperi\_b & 4.0687 & 8.922 $\pm$ 0.013 & 6.964 $\pm$ 0.015 \\
+    AROM RH1 & 4.2087 & 10.985 $\pm$ 0.018 & 8.219 $\pm$ 0.019 \\
+    ROM RH1 & 4.4657 & 11.094 $\pm$ 0.020 & 7.710 $\pm$ 0.019 \\
+    MC1 HR & 4.7540 & 27.474 $\pm$ 0.064 & 17.656 $\pm$ 0.041 \\
+    MCR\_Per1\_b & 5.1709 & 9.310 $\pm$ 0.026 & 5.379 $\pm$ 0.013 \\
+    MCR\_Per1\_t & 5.2709 & 9.348 $\pm$ 0.026 & 5.270 $\pm$ 0.013 \\
+    MCR\_Per2\_t & 6.0209 & 9.633 $\pm$ 0.038 & 4.575 $\pm$ 0.012 \\
+    MCR\_Per2\_b & 6.1209 & 9.677 $\pm$ 0.037 & 4.496 $\pm$ 0.012 \\
+    MCR\_M1 & 8.5949 & 10.768 $\pm$ 0.087 & 3.1497 $\pm$ 0.0100 \\
+    MCR\_M2 & 9.1509 & 11.04 $\pm$ 0.11 & 2.9526 $\pm$ 0.0092 \\
+    MCR\_AR1 & 9.7069 & 11.34 $\pm$ 0.12 & 2.7764 $\pm$ 0.0088 \\
+    MCR\_M3 & 10.2629 & 11.65 $\pm$ 0.14 & 2.6219 $\pm$ 0.0087 \\
+    MCR\_M4 & 10.8189 & 11.98 $\pm$ 0.15 & 2.4820 $\pm$ 0.0078 \\
+    MCR\_BD1 & 11.3749 & 17.41 $\pm$ 0.24 & 3.335 $\pm$ 0.011 \\
+    JAC\_L2 & 1.2342 & 8.238 $\pm$ 0.029 & 46.3 $\pm$ 1.1 \\
+    JAC\_L3 & 1.9352 & 5.8445 $\pm$ 0.0100 & 11.478 $\pm$ 0.052 \\
+    \hline
+    \end{tabular}
+    \caption{Distances and maximum allowable angles for each optic.}
+    \end{table}

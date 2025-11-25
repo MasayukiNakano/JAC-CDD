@@ -1,0 +1,56 @@
+This is BibTeX, Version 0.99d (TeX Live 2024)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: main.aux
+The style file: unsrt.bst
+Database file #1: references.bib
+Warning--I didn't find a database entry for "misalignment"
+Warning--I didn't find a database entry for "alog:IMCproj"
+Warning--I didn't find a database entry for "G2301529"
+Warning--I didn't find a database entry for "E2500324"
+Warning--I didn't find a database entry for "a"
+Warning--I didn't find a database entry for "T2500103"
+Warning--I didn't find a database entry for "??"
+Warning--I didn't find a database entry for ""
+Warning--empty institution in finesse
+You've used 19 entries,
+            1791 wiz_defined-function locations,
+            553 strings with 6128 characters,
+and the built_in function-call counts, 2178 in all, are:
+= -- 180
+> -- 45
+< -- 0
++ -- 27
+- -- 8
+* -- 52
+:= -- 248
+add.period$ -- 38
+call.type$ -- 19
+change.case$ -- 17
+chr.to.int$ -- 0
+cite$ -- 20
+duplicate$ -- 100
+empty$ -- 341
+format.name$ -- 8
+if$ -- 557
+int.to.chr$ -- 0
+int.to.str$ -- 19
+missing$ -- 1
+newline$ -- 79
+num.names$ -- 2
+pop$ -- 122
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 78
+stack$ -- 0
+substring$ -- 18
+swap$ -- 18
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 1
+while$ -- 3
+width$ -- 21
+write$ -- 155
+(There were 9 warnings)

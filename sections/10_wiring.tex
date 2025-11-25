@@ -1,0 +1,23 @@
+\section{Wiring}
+\subsection{Analog circuit}
+The main circuit is the modulator and demodulator for the length and alignment sensing. These circuite will be located in PSL\_R1, PSL\_R2, ISC\_R1, ISC\_R2, ISC\_R4. Also, for tip-tilt actuation, we place the coil driver on SUS\_C4, and saterite box on SUS\_R1. The rack layout is working in progress.
+
+\subsection{CDS}
+- The model will run in l/h1imc or make new model l/h1jac?
+- 
+
+\subsection{HAM1 flange feedthrough}
+The main electronics in the HAM1 chamber related to the JAC will be
+\begin{itemize}
+    \item 3 x Tip-tilt suspension
+    \item JAC Controls (PZT, thermometer, and heater)
+    \item DC PD
+    \item EOM
+\end{itemize}
+Each tip-tilt needs a D25 connection for OSEM sensing and control. JAC PZT, JAC thermometer, heater, and DCPD will share a D25 cable. Therefore, four D25 connections are needed. The EOM has four electrodes, and each connection will use a coax cable.
+
+Summarizing these cables, the required feedthroughs are:
+\begin{itemize}
+    \item 2 x dual-D25: \href{https://dcc.ligo.org/LIGO-D2000223}{D2000223}
+    \item 1 x five-coax (Accuglass\_25D-5CX-450): \href{https://dcc.ligo.org/LIGO-D1600167}{D1600167}
+\end{itemize}

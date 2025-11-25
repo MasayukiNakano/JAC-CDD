@@ -1,0 +1,24 @@
+\section{Overview}
+
+\subsection{Background and Motivation}
+During the O4 run, input beam jitter was identified as one of the noise sources limiting detector sensitivity~\cite{O4instrument}. Jitter-induced noise appeared at both LLO and LHO in the 100~Hz--1~kHz band (Fig.~\ref{fig:jitter-coupling}). As the detectors approach the improved O5 sensitivity, this coupling is expected to become an even stronger sensitivity limiter. The dominant jitter source was traced to the PSL periscope~\cite{alog64098}. To mitigate this contribution, we propose installing an optical filtering cavity---the Jitter Attenuation Cavity (JAC)---between the PSL and the IMC. By suppressing TEM$_{10/01}$ content, the JAC reduces beam jitter before it couples into the interferometer. Installation is planned in preparation for the O5 observation period.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{Figs/Jitter_DARM_projection.pdf}
+    \caption{Jitter noise projection to DARM sensitivity. The orange trace shows the A+ target sensitivity. The green trace represents the jitter noise attenuation requirement, defined as the A+ target sensitivity multiplied by a safety factor of 10. Achieving 30~dB attenuation suppresses the projected jitter noise below this requirement.}
+    \label{fig:jitter-coupling}
+\end{figure}
+
+\subsection{Block Diagram}
+The JAC is installed in HAM1 between the PSL and the IMC. The PSL output beam is transmitted through the JAC to the IMC, while the reflected beam exits HAM1 toward ISCT1 (LLO) or IOT1 (LHO), where it is used to generate length and alignment control signals.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{Figs/blockdiagram.png}
+    \caption{Block diagram of the JAC.}
+    \label{fig:block-diagram}
+\end{figure}
+
+\subsection{Requirements}
+The jitter attenuation requirement for the JAC is set to 30~dB. This value ensures that the projected jitter noise remains at least an order of magnitude below the A+ target sensitivity, assuming the same input jitter level and jitter coupling observed during O4. As illustrated in Fig.~\ref{fig:jitter-coupling}, the current jitter projection compared with the A+ design sensitivity (with a safety factor of 10, shown in green) indicates that achieving 30~dB attenuation is sufficient to bring the projected jitter noise below this requirement.

@@ -1,0 +1,34 @@
+\section{In air table layout}
+The reflected beam from the JAC is directed to the ISCT1 table. The main components are the RFPD for length control and the WFSs for angular control. Additionally, a high-power beam dump is required. With this proposed layout, no changes are needed to the other REFL, POP, and ALS paths.
+
+\subsection{Layout}
+The ISCT1 layout design is shown in Fig.~\ref{fig:ISCT1}. The beam from the JAC reflection is directed downward by the periscope. The same periscope used for the ALS path will be utilized here. A picture and figure are shown in Fig.~\ref{fig:ISCT1peri}.
+
+The first lens (JACR\_L1) focuses the beam 0.7 m away from the lens with a beam radius of 625 $\mu$m. The transmissivity of the first BS (JACR\_BS1) is designed to be 1000 ppm, so it reflects most of the power to two beam dumps, as described in the following section. The second and third BSs are 50/50 BSs to split the power between the RFPD and WFSs for JAC length and angular control. Pico-motorized steering mirrors are located for the JAC WFSs to center the DC beam position on the WFSs.
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{Figs/ISCT1.pdf}
+    \caption{ISCT1 layout. The JAC reflected beam comes from the top right and is directed down by the third periscope.}
+    \label{fig:ISCT1}
+\end{figure}
+
+\subsection{Gouy phase telescope}
+The Gouy phase on the WFSs is optimized by the first lens. The beam propagation is shown in Fig.~\ref{fig:ISCT1_BP}. The Gouy phase separation for the two WFSs is 90 degrees. Note that the distance between the chamber and the table is not measured but assumed, and there might be an error in the waist position. We will need to measure the beam propagation in-situ and may need to adjust the lens position.
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{Figs/ISCT1_bp.pdf}
+    \caption{Beam propagation of the JAC reflection beam. JACR\_L1 focuses and positions the beam waist between two WFSs.}
+    \label{fig:ISCT1_BP}
+\end{figure}
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{Figs/ISCT1peri.pdf}
+    \caption{Periscope currently used for the ALS path on ISCT1.}
+    \label{fig:ISCT1peri}
+\end{figure}
+
+\subsection{High power beam dump}
+The beam dump needs to handle over 100 W of power. While there are several water-cooled beam dump options that can handle 100 W, we currently only have an 80 W-capable beam dump cooled with a heat sink. For the O5 upgrade, the plan is to use two 80 W beam dumps for the JAC. As a future upgrade, we should keep in mind the option to replace them with a water-cooled beam dump to handle more power with a single unit.
+
+\subsection{ALS Path}
+To ensure safety during installation work, the ALS path has been modified without changing its length. The ALS and JAC paths are well sectioned, and no beams overlap.
