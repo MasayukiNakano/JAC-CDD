@@ -23,6 +23,7 @@ where $\xi$ is the normalized frequency by the half-width-half-maximum (HWHM) $\
 The actuator will use a PZT attached to the JAC. We assume the use of a Noliac PAHH-0013 (PI) PZT, which has a DC response of 0.41 $\mu$m/200V. This value was calculated from the calibration measurement reported in~\cite{alog81385} and the DC gain 75 V/V of the PMC PZT driver. The high-voltage (HV) amplifier used to drive the PZT is \cite{E2500160_x0}, with a frequency response characterized by poles at 1 Hz and 500 Hz, a zero at 15 Hz, and a DC gain of 30dB. The transfer function is shown in \cite{T2500269_v1}
 
 \subsubsection{Heater}
+The JAC has two heaters of IS250C50RKE OHMITE. The slow drift of the cavity length (less than 0.1 Hz) will be offloaded to the JAC heater. During the conceptual design process, heat conduction to the table was considered as a potential issue, but we believe this will not pose a problem.
 
 \subsection{Servo}
 The control system will be implemented using a digital control system of CDS. Based on the data from T2000188, the phase delay caused by the CDS is expected to be approximately 300 µsec, which corresponds to a delay of about 5 cycles at a sampling rate of 16 kHz. Since the document assumes a direct connection between the ADC and DAC, so we should consider additional phase delays caused by model dependencies. So, we assume a time delay of 500 µsec, which corresponds to approximately 8 cycles. The achievable unity gain frequency (UGF) is determined by this phase delay. 
@@ -99,15 +100,6 @@ Fig.~\ref{fig:freqNoise} shows the estimated frequency noise caused by the resid
     \label{fig:freqNoise}
 \end{figure}
 
-\subsection{Slow control}
-The JAC has two heaters of IS250C50RKE OHMITE. The slow drift of the cavity length (less than 0.1 Hz) will be offloaded to the JAC heater. During the conceptual design process, heat conduction to the table was considered as a potential issue, but we believe this will not pose a problem. The heater will maintain the JAC temperature, compensating for heating by the full laser power during lock acquisition. The expected use of the heater is as follows:
-\begin{enumerate}
-    \item Lock the JAC with PZT at low power (about 1 W), and offload the DC control to the heater to keep the PZT input constant.
-    \item During lock acquisition, maintain this slow loop. As the heat from the laser increases with more input power, this loop will keep the JAC length stable by reducing the heater output.
-\end{enumerate}
-As a result, the total heat on the JAC will remain constant during the lock acquisition. This control scheme allows the JAC heater to prevent changes in heat conduction to the ISI table.
-
- 
 \subsection{Conclusion of the length control}
 For the length control, our design will include the following:
 \begin{itemize}
