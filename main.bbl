@@ -82,4 +82,58 @@ Daniel~David Brown and Andreas Freise.
 {aLIGO, high quality, .75 deg wedged, 6" Viewport Assembly}.
 \newblock \href{https://dcc.ligo.org/LIGO-D1101000-v3}{LIGO-D1101000-v3}, 2011.
 
+\bibitem{C2500078_v2}
+{Quotes for 2" BSs for the JAC upgrade post-O4}.
+\newblock \href{https://dcc.ligo.org/LIGO-C2500078-v2}{LIGO-C2500078-v2}, 2025.
+
+\bibitem{D1700116_v3}
+{Silicon (Si) Photodiode Circuit Board for FFD-200, GAP-5000 PDs}.
+\newblock \href{https://dcc.ligo.org/LIGO-D1700116-v3}{LIGO-D1700116-v3}, 2017.
+
+\bibitem{E1900344_x0}
+{LSC RFPD Assembly}.
+\newblock \href{https://dcc.ligo.org/LIGO-E1900344-x0}{LIGO-E1900344-x0}, 2019.
+
+\bibitem{G1900329_v3}
+{In-vacuum EOM design: Update}.
+\newblock \href{https://dcc.ligo.org/LIGO-G1900329-v3}{LIGO-G1900329-v3}, 2019.
+
+\bibitem{D1002178_v1}
+{RF Frequency Doubler Assembly}.
+\newblock \href{https://dcc.ligo.org/LIGO-D1002178-v1}{LIGO-D1002178-v1}, 2010.
+
+\bibitem{ExcelitasC30642GHweb}
+C30642gh -- ingaas pin, 2mm, to-5, 2021.
+\newblock Accessed: 2025-11-25.
+
+\bibitem{E1200112_x0}
+{aLIGO, ISC, RF System, 4 Channel I Q Demodulator}.
+\newblock \href{https://dcc.ligo.org/LIGO-E1200112-x0}{LIGO-E1200112-x0}, 2012.
+
+\bibitem{T1300315_v1}
+{Notes on RFPD Signal Chain Measurements}.
+\newblock \href{https://dcc.ligo.org/LIGO-T1300315-v1}{LIGO-T1300315-v1}, 2013.
+
+\bibitem{G1101199_v1}
+{aLIGO LSC RF photodetector test}.
+\newblock \href{https://dcc.ligo.org/LIGO-G1101199-v1}{LIGO-G1101199-v1}, 2011.
+
+\bibitem{alog81385}
+{LIGO aLOG Entry 81385}.
+\newblock
+  \href{https://alog.ligo-wa.caltech.edu/aLOG/index.php?callRep=81385}{LIGO
+  aLOG Entry 81385}, 2025.
+
+\bibitem{E2500160_x0}
+{aLIGO, ISC, Electronics, PZT Driver with Dewhitening}.
+\newblock \href{https://dcc.ligo.org/LIGO-E2500160-x0}{LIGO-E2500160-x0}, 2025.
+
+\bibitem{T2500269_v1}
+{PZT Driver with Dewhitening Test Procedure}.
+\newblock \href{https://dcc.ligo.org/LIGO-T2500269-v1}{LIGO-T2500269-v1}, 2025.
+
+\bibitem{T1600064_v2}
+{ISS second loop requirements}.
+\newblock \href{https://dcc.ligo.org/LIGO-T1600064-v2}{LIGO-T1600064-v2}, 2016.
+
 \end{thebibliography}

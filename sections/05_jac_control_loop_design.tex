@@ -1,18 +1,18 @@
 \section{JAC Control Loop Design}
 \subsection{Length Control}
-The Pound-Drever-Hall (PDH) method will be used for length control. The IO EOM located in the PSL will be used for the modulator, and the reflection from the JAC will be directed to the ISCT1/IOT1 and sense the signal with the LSC PD located on the table. The digital servo will be used for the control. For the shot noise calculation, 2\% of mode-mismatching is assumed.
+The Pound-Drever-Hall (PDH) method will be used for length control. The IO EOM located in the PSL will be used for the modulator, and the reflection from the JAC will be directed to the ISCT1/IOT1 and sense the signal with the LSC RFPD~\cite{E1900344_x0} located on the table. The digital servo will be used for the control. For the shot noise calculation, 2\% of mode-mismatching is assumed.
 
 \subsubsection{Modulation}
-The modulation frequency is set to 43 MHz, which is twice the modulation frequency used for the PSL FSS reference cavity (21.5 MHz). This frequency was chosen because the EOM used for modulation has a 45 MHz channel, and the modulation index at 43 MHz is relatively large, approximately 0.1 rad/V \cite{??}. Additionally, generating the RF signal is straightforward using a frequency doubler. The RF signal for modulation is taken directly from the distributor output, with a power level of 10 dBm, resulting in a modulation index of 0.01.
+The modulation frequency is set to 43 MHz, which is twice the modulation frequency used for the PSL FSS reference cavity (21.5 MHz). This frequency was chosen because the IO EOM has a 45 MHz channel, and the modulation index at 43 MHz is relatively large, approximately 0.1 rad/V \cite{G1900329_v3}. Additionally, generating the RF signal is straightforward using a frequency doubler~\cite{D1002178_v1}. The RF signal for modulation is taken directly from the distributor output, with a power level of 10 dBm, resulting in a modulation index of 0.01.
 
 \subsubsection{Sensor}
-The PD used to obtain the signal will be the LSC RFPD\cite{}. The responsibility of the photodiode (Excelitas, C30642~\cite{}) is approximately 0.82 A/W, with a quantum efficiency (QE) of 0.96 at 1064~nm, and a transimpedance is around 200 ohms. The RF beat signal will be demodulated with LSC I/Q demodulator \cite{}, which has the conversion gain of 22 dB Vpp/Vpp \cite{}. The light incident on the RFPD is attenuated by a 1000 ppm transmissive BS and a 50/50 BS. The injection power to the JAC is assumed as 100 W. The PD noise is calculated with 2 mA of shotnoise intercept current\cite{}.
+The PD used to obtain the signal will be the LSC RFPD. The responsibility of the photodiode (Excelitas, C30642~\cite{ExcelitasC30642GHweb}) is approximately 0.82 A/W, with a quantum efficiency (QE) of 0.96 at 1064~nm, and a transimpedance is around 200 ohms. The RF beat signal will be demodulated with LSC I/Q demodulator \cite{E1200112_x0}, which has the conversion gain of 22 dB Vpp/Vpp \cite{T1300315_v1}. The injection power to the JAC is assumed as 100 W. The power relfected from the JAC and injected to the RFPD is adjusted with the HWP and PBS pair, ane we assumed the 20mW injected into RFPD with the 100W JAC injection. The PD noise is calculated with 2 mA of shotnoise intercept current\cite{G1101199_v1}.
 
 The beat signal amplitude of the reflected light can be written as  
 \begin{equation}
     P(\xi) = 4P_{DC}J_0(\beta)J_1(\beta) \frac{\xi-\xi_0}{1+(\xi-\xi_0)^2},
 \end{equation}
-where $\xi$ is the normalized frequency by the half-width-half-maximum (HWHM) $\xi_c$, $\xi_0$ is the resonant frequency, $J_n(\xi)$ is the Bessel function, and $\beta$ is the modulation index. The beat signal amplitude near resonance is approximately $4P_{DC}J_0(\beta)J_1(\beta)$. Thus, including the PD and I/Q demodulator parameters, the optical gain near the resonance can be calculated as 1.78 V/HWHM. The expected error signal calculated by Finesse is shown in Fig.~\ref{fig:JACPDH}.
+where $\xi$ is the normalized frequency by the half-width-half-maximum (HWHM) $\xi_c$, $\xi_0$ is the resonant frequency, $J_n(\xi)$ is the Bessel function, and $\beta$ is the modulation index. The beat signal amplitude near resonance is approximately $4P_{DC}J_0(\beta)J_1(\beta)$. Thus, including the PD and I/Q demodulator parameters, the optical gain near the resonance can be calculated as 0.71 V/HWHM. The expected error signal calculated by Finesse is shown in Fig.~\ref{fig:JACPDH}.
 \begin{figure}
     \centering
     \includegraphics[width=0.8\linewidth]{Figs/PDH_signal.pdf}
@@ -20,7 +20,7 @@ where $\xi$ is the normalized frequency by the half-width-half-maximum (HWHM) $\
     \label{fig:JACPDH}
 \end{figure}
 \subsubsection{Actuator}
-The actuator will use a PZT attached to the JAC. We assume the use of a Noliac NAC2125 PZT, which has a DC response of 3.3 $\mu$m/200V. The high-voltage (HV) amplifier used to drive the PZT is D1001203, with a frequency response characterized by poles at 1 Hz and 500 Hz, a zero at 15 Hz, and a DC gain of 20.
+The actuator will use a PZT attached to the JAC. We assume the use of a Noliac PAHH-0013 (PI) PZT, which has a DC response of 0.41 $\mu$m/200V. This value was calculated from the calibration measurement reported in~\cite{alog81385} and the DC gain 75 V/V of the PMC PZT driver. The high-voltage (HV) amplifier used to drive the PZT is \cite{E2500160_x0}, with a frequency response characterized by poles at 1 Hz and 500 Hz, a zero at 15 Hz, and a DC gain of 30dB. The transfer function is shown in \cite{T2500269_v1}
 
 \subsubsection{Servo}
 The control system will be implemented using a digital control system of CDS. Based on the data from T2000188, the phase delay caused by the CDS is expected to be approximately 300 µsec, which corresponds to a delay of about 5 cycles at a sampling rate of 16 kHz. Since the document assumes a direct connection between the ADC and DAC, so we should consider additional phase delays caused by model dependencies. So, we assume a time delay of 500 µsec, which corresponds to approximately 8 cycles. The achievable unity gain frequency (UGF) is determined by this phase delay. 
@@ -60,25 +60,31 @@ Fig.~\ref{fig:errorsig} shows the spectrum of the signal obtained from the JAC r
     \label{fig:noise_budget}
 \end{figure}
 \subsubsection{Intensity noise due to residual length fluctuation}
-To evaluate whether the suppression provided by the designed control loop is sufficient, we assess the intensity noise caused by residual length fluctuations. Same as discussed in Sec.~\ref{sec:pol}, detuned cavities convert length fluctuations into intensity noise through the transfer function given by Eq.~\eqref{eq:freq2RIN}. The half-width-half-maximum of the JAC length variation is 2.1 nm. The previous calculation showed that length fluctuations are suppressed to below \(10^{-13}\) m across all frequency ranges. Normalized to HWHM, this fluctuation corresponds to \(4.7 \times 10^{-5}\). The intensity noise requirement for the JAC is to remain below the intensity noise stabilized by the current ISS inner loop, which is approximately \(5 \times 10^{-8}\) at 100 Hz as the relative intensity noise. From this, we derive that if the detuning of the cavity is less than \(5.3 \times 10^{-4}\times\)HWHM, or equivalently, an offset of \(0.95\) mV in the demodulator output, then the output intensity noise would be comparable to the current residual intensity noise of the ISS inner loop.
+To evaluate whether the suppression provided by the designed control loop is sufficient, we assess the intensity noise caused by residual length fluctuations. Same as discussed in Sec.~\ref{sec:pol}, detuned cavities convert length fluctuations into intensity noise through the transfer function given similar to Eq.~\eqref{eq:11_20_18_18_16} as
+\begin{equation}
+\begin{aligned}\label{eq:11_25_19_00_21}
+    \frac{dP}{d\xi} = 2\Delta\xi,
+\end{aligned}
+\end{equation}
+where $\Delta\xi$ is detunning normalized with HWHM. The HWHM in the unit of length is 2.1 nm. The previous calculation showed that length fluctuations are suppressed to below \(3\times10^{-14}\) m across all frequency ranges. Normalized to HWHM, this fluctuation corresponds to \(1.5 \times 10^{-5}\). The intensity noise requirement for the JAC is to remain below the intensity noise stabilized by the current ISS inner loop, which is approximately \(5 \times 10^{-8}\) at 100 Hz as the relative intensity noise. From this, we derive that if the detuning of the cavity is less than \(1.6 \times 10^{-3}\times\)HWHM, or equivalently, an offset of \(1.1\) mV in the demodulator output, then the output intensity noise would be comparable to the current residual intensity noise of the ISS inner loop.
 
-Fig.~\ref{fig:RIN_length} shows the expected intensity noise caused by length fluctuation with a 1 mV and 2 mV offset, along with the inner-loop-stabilized intensity noise measured at Hanford. As shown in the figure, intensity noise remains at acceptable levels if the offset drift stays below 2 mV.
+Fig.~\ref{fig:RIN_length} shows the expected intensity noise caused by length fluctuation with different offsets, along with the inner-loop-stabilized intensity noise measured at Hanford. As shown in the figure, intensity noise remains at acceptable levels if the offset drift stays below 2 mV.
 
 \begin{figure}
     \centering
     \includegraphics[width=1\linewidth]{Figs/RIN_length.pdf}
-    \caption{Expected relative intensity noise (RIN) caused by the residual JAC length motion. The current intensity noise stablized by the ISS inner-loop is shown as red solid line~\cite{}. }
+    \caption{Expected relative intensity noise (RIN) caused by the residual JAC length motion. The current intensity noise stablized by the ISS inner-loop is shown as red solid line~\cite{T1600064_v2}. }
     \label{fig:RIN_length}
 \end{figure}
 
 \subsubsection{Phase noise due to residual length fluctuation}
 The residual length noise will introduce phase noise into the output beam as well. The amplitude transmissivity of the critically coupled cavity is
 \begin{equation}
-    t_\text{cav}(\Delta\hat{L}) = \frac{1}{1-i\Delta\hat{L}},
+    t_\text{cav}(\xi) = \frac{1}{1-i\xi} = \frac{1+i\xi}{1+\xi^2},
 \end{equation}
-where $\Delta\hat{L}$ is the residual length noise normalized by Half-Width-Half-Maximum (HWHM). Therefore, the phase noise of the output beam can be expressed as
+where $\xi$ is the residual length noise normalized by Half-Width-Half-Maximum (HWHM). Therefore, the phase noise of the output beam can be expressed as
 \begin{equation}
-    \Delta\phi_\text{out} = \arctan\Delta\hat{L} \simeq \Delta\hat{L}.
+    \Delta\phi_\text{out} = \arctan\xi \simeq \xi.
 \end{equation}
 A residual length fluctuation of $10^{-13}$~m will be converted into $4.7\times10^{-5}$ rad of phase noise, which is equivalent to $4.7\times10^{-3}$~Hz of frequency noise at 1~kHz.
 
@@ -87,7 +93,7 @@ Fig.~\ref{fig:freqNoise} shows the estimated frequency noise caused by the resid
 \begin{figure}
     \centering
     \includegraphics[width=1\linewidth]{Figs/FreqNoise_length.pdf}
-    \caption{Frequency noise caused by the residual length noise of the JAC. The black dashed line shows the aLIGO FSS requirement~\cite{}. Orange and green lines represent the frequency noise of the JAC output with and without the CARM loop, respectively. The CARM loop will reduce the output frequency noise to a level comparable to the current frequency noise of the input beam into the PRM.}
+    \caption{Frequency noise caused by the residual length noise of the JAC. The black dashed line shows the aLIGO FSS requirement~\cite{T0900649_v4}. Orange and green lines represent the frequency noise of the JAC output with and without the CARM loop, respectively. The CARM loop will reduce the output frequency noise to a level comparable to the current frequency noise of the input beam into the PRM.}
     \label{fig:freqNoise}
 \end{figure}
 

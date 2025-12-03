@@ -3,54 +3,57 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: main.aux
 The style file: unsrt.bst
 Database file #1: references.bib
+Warning--entry type for "ExcelitasC30642GHweb" isn't style-file defined
+--line 253 of file references.bib
 Warning--I didn't find a database entry for "misalignment"
 Warning--I didn't find a database entry for "alog:IMCproj"
 Warning--I didn't find a database entry for "G2301529"
 Warning--I didn't find a database entry for "E2500324"
 Warning--I didn't find a database entry for "a"
 Warning--I didn't find a database entry for "T2500103"
+Warning--I didn't find a database entry for "D1800140_v2"
 Warning--I didn't find a database entry for "??"
 Warning--I didn't find a database entry for ""
 Warning--empty institution in finesse
-You've used 19 entries,
+You've used 32 entries,
             1791 wiz_defined-function locations,
-            553 strings with 6128 characters,
-and the built_in function-call counts, 2178 in all, are:
-= -- 180
-> -- 45
+            624 strings with 7930 characters,
+and the built_in function-call counts, 3528 in all, are:
+= -- 296
+> -- 58
 < -- 0
-+ -- 27
++ -- 40
 - -- 8
-* -- 52
-:= -- 248
-add.period$ -- 38
-call.type$ -- 19
-change.case$ -- 17
+* -- 65
+:= -- 377
+add.period$ -- 64
+call.type$ -- 32
+change.case$ -- 30
 chr.to.int$ -- 0
-cite$ -- 20
-duplicate$ -- 100
-empty$ -- 341
+cite$ -- 33
+duplicate$ -- 165
+empty$ -- 575
 format.name$ -- 8
-if$ -- 557
+if$ -- 920
 int.to.chr$ -- 0
-int.to.str$ -- 19
+int.to.str$ -- 32
 missing$ -- 1
-newline$ -- 79
+newline$ -- 131
 num.names$ -- 2
-pop$ -- 122
+pop$ -- 214
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 78
+skip$ -- 130
 stack$ -- 0
 substring$ -- 18
-swap$ -- 18
+swap$ -- 31
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 1
 while$ -- 3
-width$ -- 21
-write$ -- 155
-(There were 9 warnings)
+width$ -- 34
+write$ -- 259
+(There were 11 warnings)
